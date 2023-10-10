@@ -1,12 +1,13 @@
 import React from "react";
-// import ListingCard from "./ListingCard";
+import ListingCard from "./ListingCard";
 
-function ListingsContainer() {
+function ListingsContainer({listingDataFromApp, onRemoveListing}) {
+  const listingsArray = listingDataFromApp.map((oneListing) => {
+    return <ListingCard onRemoveListing={onRemoveListing} id={oneListing.id} oneListing={oneListing} key={oneListing.id} description={oneListing.description} location={oneListing.location} image={oneListing.image}/>
+  })
   return (
     <main>
-      <ul className="cards">
-        {/* use the ListingCard component to display listings */}
-      </ul>
+      <ul className="cards">{listingsArray}</ul>
     </main>
   );
 }
